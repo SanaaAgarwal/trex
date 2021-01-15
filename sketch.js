@@ -8,6 +8,7 @@ var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
 var score = 0
+var HighestScore = score
 var restart,restartImage
 var gameOver, gameoverImage
     
@@ -66,6 +67,9 @@ function draw() {
   fill("black")
   text("Score: "+score,450,50) 
   
+  textSize(15)
+  fill(50)
+  text("Highest Score:" +HighestScore, 450,30)
   
   if(gameState === PLAY){
     //move the ground
@@ -120,7 +124,9 @@ function draw() {
     ObstaclesGroup.setLifetimeEach(-1);
     CloudsGroup.setLifetimeEach(-1);
     
-    
+   if(score>HighestScore) {
+     HighestScore =score
+   }
     
   }
   
